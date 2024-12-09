@@ -159,9 +159,5 @@ Need help, have questions, or want to collaborate? Reach out!
 
 If you find this project useful, feel free to give it a ⭐ on GitHub.  
 
----
-
-**Made with ❤️ by Lendon Bracewell**  
-
 
 
