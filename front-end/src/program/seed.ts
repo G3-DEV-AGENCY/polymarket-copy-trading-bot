@@ -1,0 +1,1 @@
+export const SEED_CONFIG = "config";
