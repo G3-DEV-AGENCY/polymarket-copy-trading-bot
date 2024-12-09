@@ -1,6 +1,6 @@
 # 🚀 **LB PUMP**  
 
-
+![Screenshot_44](https://github.com/user-attachments/assets/686089c7-77fe-491c-a84d-f31c80ca2244)
 
 LB PUMP is a dynamic platform inspired by pump.fun. This site serves as an interactive space to inform users about the project, with user-friendly features that enable customization and updates. The platform is powered by modern technologies in both frontend, backend, and smart contract development.  
 
@@ -8,8 +8,10 @@ LB PUMP is a dynamic platform inspired by pump.fun. This site serves as an inter
 
 ## 🌐 **Live Demo**  
 If a live demo URL is available, you can place it here.  
-> [**LB PUMP Live Site**](#)  
-
+![Screenshot_44](https://github.com/user-attachments/assets/a4ce86cf-0742-4b91-8c5c-cf5a3ab08e25)
+![Screenshot_46](https://github.com/user-attachments/assets/8f9ae2ee-afd6-4e9e-9ac9-7aa2e22996fe)
+![Screenshot_47](https://github.com/user-attachments/assets/451c0385-0b0d-4269-a116-098e0c2fcaea)
+![Screenshot_48](https://github.com/user-attachments/assets/bb63b82c-efc2-42d1-b477-1061e51678e0)
 ---
 
 ## 📖 **Table of Contents**  
