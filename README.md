@@ -76,12 +76,12 @@ Make sure you have the following installed:
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/topsecretagent007/lb-pump.git
+   git clone https://github.com/0xalberto/pumpfun-smart-contract-frontend-backend.git
    ```
 
 2. **Navigate to the Project Directory**  
    ```bash
-   cd lb-pump
+   cd lbpumpfun-smart-contract-frontend-backend
    ```
 
 3. **Install Dependencies**  
