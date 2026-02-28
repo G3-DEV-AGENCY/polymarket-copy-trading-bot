@@ -43,9 +43,7 @@ if (!process.env.CLOB_HTTP_URL) {
 if (!process.env.CLOB_WS_URL) {
     throw new Error('CLOB_WS_URL is not defined');
 }
-if (!process.env.MONGO_URI) {
-    throw new Error('MONGO_URI is not defined');
-}
+
 if (!process.env.RPC_URL) {
     throw new Error('RPC_URL is not defined');
 }

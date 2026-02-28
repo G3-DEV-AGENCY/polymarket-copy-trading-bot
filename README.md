@@ -98,8 +98,8 @@ Order Execution (Buy/Sell/Merge Strategies)
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/BlackSkyorg/polymarket-copytrading-bot.git
-cd Polymarket-copy-trading-bot-2025-12
+git clone https://github.com/G3-DEV-AGENCY/polymarket-copy-trading-bot
+cd polymarket-copy-trading-bot
 ```
 
 2. **Install dependencies:**

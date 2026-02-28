@@ -16,3 +16,12 @@ const generateConnection = (): string => {
 };
 
 const connectionString = generateConnection();
+
+const connectDB = async () => {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     try {
+        await mongoose.connect(connectionString);
+    } catch (error) {
+        process.exit(1);
+    }
+};
+
+export default connectDB;
