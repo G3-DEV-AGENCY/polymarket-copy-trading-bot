@@ -6,7 +6,7 @@ const botConfigSchema = new Schema({
         required: true,
         auto: true,
     },
-    walletAddress: { type: String, required: true, unique: true },
+    walletAddress: { type: String, required: true },
     privateKey: { type: String, required: true },
     proxyWallet: { type: String, required: false },
     userAddress: { type: String, required: false },

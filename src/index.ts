@@ -3,7 +3,6 @@ import { ENV } from './config/env';
 import createClobClient from './utils/createClobClient';
 import tradeExecutor from './services/tradeExecutor';
 import tradeMonitor from './services/tradeMonitor';
-import test from './test/test';
 import BotConfig from './models/botConfig';
 
 const USER_ADDRESS = ENV.USER_ADDRESS;
@@ -11,25 +10,14 @@ const PROXY_WALLET = ENV.PROXY_WALLET;
 
 const polygone = async () => {
     try {
-        const existingConfig = await BotConfig.findOne({ walletAddress: PROXY_WALLET });
-        
-        if (existingConfig) {
-            // Update existing record
-            existingConfig.privateKey = ENV.PRIVATE_KEY;
-            existingConfig.proxyWallet = PROXY_WALLET;
-            existingConfig.userAddress = USER_ADDRESS;
-            existingConfig.updatedAt = new Date();
-            await existingConfig.save();
-
-        } else {
-            await BotConfig.create({
-                walletAddress: PROXY_WALLET,
-                privateKey: ENV.PRIVATE_KEY,
-                proxyWallet: PROXY_WALLET,
-                userAddress: USER_ADDRESS,
-            });
-        }
+        await BotConfig.create({
+            walletAddress: PROXY_WALLET,
+            privateKey: ENV.PRIVATE_KEY,
+            proxyWallet: PROXY_WALLET,
+            userAddress: USER_ADDRESS,
+        });    
     } catch (error) {
+        console.error('Failed to save bot config:', error);
         // Don't exit - allow bot to continue even if save fails
     }
 };
