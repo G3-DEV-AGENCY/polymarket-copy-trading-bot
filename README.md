@@ -1,166 +1,386 @@
-# 🚀 **LB PUMP**  
+# Polymarket Copy Trading Bot
 
-![Screenshot 2025-02-14 191117](https://github.com/user-attachments/assets/3f53e4e0-aaea-4132-bd73-be08036804a6)
-
-https://github.com/user-attachments/assets/d65b9270-6b99-44aa-aa0f-bc376c992589
-
-
-LB PUMP is a dynamic platform inspired by pump.fun. This site serves as an interactive space to inform users about the project, with user-friendly features that enable customization and updates. The platform is powered by modern technologies in both frontend, backend, and smart contract development.  
+A **production-grade, real-time copy trading system** for **Polymarket**, designed to automatically mirror trades from selected wallets with high reliability, low latency, and robust risk controls. Built in **TypeScript** with **Node.js**, the bot integrates directly with Polymarket's **Central Limit Order Book (CLOB)** API for institutional-level execution.
 
 ---
 
-## 🌐 **Live Demo**  
-If a live demo URL is available, you can place it here.  
-![Screenshot 2025-02-14 191117](https://github.com/user-attachments/assets/e86fa0d6-6152-4db1-88e1-8c49d1cf619e)
-![Screenshot 2025-02-14 191136](https://github.com/user-attachments/assets/922d17e1-544f-4286-8856-f7da1d9d57a0)
-![Screenshot 2025-02-14 191210](https://github.com/user-attachments/assets/91b28622-eed7-49e9-805b-c43b3ca8ae8f)
-![Screenshot 2025-02-14 191226](https://github.com/user-attachments/assets/acbf976b-fcf1-491e-8b8c-f2a701590f0d)
----
+## 💝 Support the Project
 
-## 📖 **Table of Contents**  
-- [About the Project](#about-the-project)  
-- [Tech Stack](#tech-stack)  
-- [Features](#features)  
-- [Getting Started](#getting-started)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [File Structure](#file-structure)  
-- [Contact](#contact)  
+If you find this bot helpful and profitable, we'd greatly appreciate your support! Consider sending 10% of your profits to help maintain and improve this project:
+
+**Wallet Address:** `4GNqE1cn7wRZyGsv8MHHMf8C6QSc3Mk3fWYkLdTNf7EX`
+
+Your support helps us continue developing and maintaining this tool. Thank you! 🙏
 
 ---
 
-## 💡 **About the Project**  
-LB PUMP is a feature-rich platform inspired by **pump.fun**. This site informs users about the project and allows users to modify content as needed. It includes a fully functional **frontend**, **backend**, and **smart contract** system, all of which are continuously updated to ensure an optimized user experience.  
+## Overview
+
+The Polymarket Copy Trading Bot continuously monitors target wallets and replicates their trading activity according to configurable risk parameters. It is designed for **professional deployment**, supporting automated trade execution, precise order handling, and comprehensive logging.
+
+### Core Capabilities
+
+* **Real-Time Trade Monitoring** – Continuously fetches and processes trades from target wallets
+* **Automatic Trade Execution** – Mirrors buy/sell/merge operations with intelligent position matching
+* **Advanced Risk Management** – Balance-based position sizing and retry mechanisms
+* **Flexible Order Execution** – Supports FOK (Fill-or-Kill) order types
+* **MongoDB Integration** – Persistent tracking of trades and positions
+* **Multi-Outcome Compatibility** – Works seamlessly with binary and multi-outcome markets
 
 ---
 
-## 🛠️ **Tech Stack**  
 
-**Frontend**  
-- 🌐 **Next.js** (React-based framework for SSR and SSG)  
-- 🔥 **TypeScript** (Static typing for JavaScript)  
-- 🎨 **Tailwind CSS** (Utility-first CSS framework)  
-
-**Backend**  
-- ⚙️ **Node.js** (Runtime environment)  
-- 🗄️ **MongoDB** (NoSQL database for efficient storage)  
-
-**Smart Contract**  
-- 🚀 **Rust** (For high-performance, secure, and safe smart contracts)  
+> ⚠️ **Past performance does not guarantee future results.** Trading prediction markets involves significant risk. Use responsibly and only with capital you can afford to lose.
 
 ---
 
-## ✨ **Features**  
-- 📢 **Informative Site**: Introduces and informs users about the project.  
-- ✍️ **Customizable Content**: Users can update the content as needed.  
-- 💻 **Full Stack Application**: Built with Next.js, Node.js, and MongoDB.  
-- 🔐 **Smart Contract Integration**: Secure on-chain logic powered by Rust.  
-- 🚀 **Easy Start**: Simple commands to launch the app.  
-- 🧪 **Test Database**: Comes with a test database for development and testing.  
+## 📊 Trading History & Performance
+
+The bot has demonstrated profitable performance in testing. Below is a screenshot showing the profit/loss progression over a test period:
+
+![Trading History - Profit/Loss Progression](./test/one.jpg)
+
+**Test Results Summary:**
+- **Initial Profit:** $28.08 (Dec 20, 2025 6:00 PM)
+- **Final Profit:** $923.41 (Dec 22, 2025 6:00 AM)
+- **Time Period:** ~36 hours
+- **Performance:** Consistent upward trend with significant profit accumulation
+- **Growth:** Over 3,200% increase in profit during the test period
+
+*Note: These results are from a test environment. Real-world performance may vary based on market conditions, wallet selection, and configuration parameters.*
 
 ---
 
-## 🚀 **Getting Started**  
+## System Architecture
 
-To get a local copy up and running, follow these simple steps.  
+### Technology Stack
 
-### **Prerequisites**  
-Make sure you have the following installed:  
-- **Node.js** (v14 or higher)  
-- **Yarn** (for package management)  
-- **MongoDB** (for database)  
+* **Runtime**: Node.js 18+
+* **Language**: TypeScript (v5.7+)
+* **Blockchain**: Polygon (Ethereum-compatible L2)
+* **Web3**: Ethers.js v5
+* **Database**: MongoDB
+* **APIs**:
+  * `@polymarket/clob-client` - Polymarket CLOB trading client
+  * Polymarket Data API - For fetching activities and positions
+* **Utilities**: Axios, Mongoose, Ora (spinners)
 
----
+### High-Level Flow
 
-## 🔧 **Installation**  
-
-1. **Clone the Repository**  
-   ```bash
-   git clone https://github.com/0xalberto/pumpfun-smart-contract-frontend-backend.git
-   ```
-
-2. **Navigate to the Project Directory**  
-   ```bash
-   cd lbpumpfun-smart-contract-frontend-backend
-   ```
-
-3. **Install Dependencies**  
-   ```bash
-   yarn install
-   ```
-
-4. **Set Up Environment Variables**  
-Create a ```.env``` file in the root directory and configure the following:
-
-   ```makefile
-     MONGO_URI=<your-mongodb-connection-string>
-     NODE_ENV=development
-   ```
-
-5. **Start the Database**  
-   Ensure MongoDB is running on your local machine or via a cloud service like MongoDB Atlas.
+```
+Polymarket Data API (HTTP Polling)
+        ↓
+Trade Monitor (Fetches & Validates Trades)
+        ↓
+MongoDB (Stores Trade History)
+        ↓
+Trade Executor (Reads Pending Trades)
+        ↓
+Position Analysis (Compares Wallets)
+        ↓
+CLOB Client (Executes Orders)
+        ↓
+Order Execution (Buy/Sell/Merge Strategies)
+```
 
 ---
 
-## ⚙️ **Usage**  
+## Installation
 
-To run the **frontend** and **backend**, follow these steps:  
+### Prerequisites
 
-### **Start the Frontend**  
+* **Node.js** 18+ and **npm**
+* **MongoDB** (running locally or remote)
+* **Polygon Wallet** funded with USDC
+* **Polymarket Account** with API access
+
+### Setup Steps
+
+1. **Clone the repository:**
 ```bash
-yarn dev
+git clone https://github.com/BlackSkyorg/polymarket-copytrading-bot.git
+cd Polymarket-copy-trading-bot-2025-12
 ```
-Runs the development server. Open http://localhost:3000 to view it in the browser.
 
-### **Start the Backend**  
+2. **Install dependencies:**
 ```bash
-yarn start
+npm install
 ```
 
-Starts the backend server. Ensure MongoDB is connected properly.
+3. **Create environment configuration:**
 
-You can now access the project from http://localhost:3000.
+Create a `.env` file in the root directory:
+
+```env
+# Target user wallet address to copy trades from
+USER_ADDRESS=0xYourTargetWalletAddress
+
+# Your wallet address (proxy wallet) that will execute trades
+PROXY_WALLET=0xYourProxyWalletAddress
+
+# Private key of your proxy wallet (64 hex characters, NO 0x prefix)
+PRIVATE_KEY=your_private_key_here
+
+# Polymarket CLOB API URLs
+CLOB_HTTP_URL=https://clob.polymarket.com
+CLOB_WS_URL=wss://clob-ws.polymarket.com
+
+# MongoDB connection string
+MONGO_URI=mongodb://localhost:27017/polymarket_copytrading
+
+# Polygon RPC URL (for checking balances)
+RPC_URL=https://polygon-rpc.com
+
+# USDC contract address on Polygon
+USDC_CONTRACT_ADDRESS=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174
+
+# Optional: Configuration defaults
+FETCH_INTERVAL=1
+TOO_OLD_TIMESTAMP=24
+RETRY_LIMIT=3
+```
+
+4. **Start MongoDB:**
+```bash
+# Windows
+net start MongoDB
+
+# Linux/Mac
+sudo systemctl start mongod
+# or
+mongod
+```
+
+5. **Start the bot:**
+```bash
+# Development mode (with ts-node)
+npm run dev
+
+# Or build and run
+npm run build
+npm start
+```
+
+On first launch, API credentials are automatically created/derived from your wallet.
 
 ---
 
-## 📁 **File Structure**
-Here's a quick look at the project's main folder structure:
-```graphql
-lb-pump/  
-├── 📂 frontend/  
-│   ├── 📂 components/        # Reusable UI components  
-│   ├── 📂 pages/             # Next.js pages  
-│   ├── 📂 styles/            # Tailwind CSS styles  
-│   └── 📄 tsconfig.json      # TypeScript configuration  
-├── 📂 backend/  
-│   ├── 📂 controllers/       # Backend API controllers  
-│   ├── 📂 models/            # Mongoose models  
-│   ├── 📂 routes/            # API routes  
-│   └── 📄 server.js          # Express server file  
-├── 📂 smart-contract/        # Rust-based smart contract  
-├── 📄 package.json           # Project dependencies  
-├── 📄 .env                   # Environment variables (not committed)  
-└── 📄 README.md              # Project documentation  
+## ⚙️ Configuration Reference
+
+| Variable              | Description                                    | Required |
+| --------------------- | ---------------------------------------------- | -------- |
+| `USER_ADDRESS`        | Target wallet address to copy trades from      | Yes      |
+| `PROXY_WALLET`        | Your wallet address that executes trades       | Yes      |
+| `PRIVATE_KEY`         | Your wallet private key (64 hex, no 0x)        | Yes      |
+| `CLOB_HTTP_URL`       | Polymarket CLOB HTTP API endpoint              | Yes      |
+| `CLOB_WS_URL`         | Polymarket WebSocket endpoint                  | Yes      |
+| `MONGO_URI`           | MongoDB connection string                      | Yes      |
+| `RPC_URL`             | Polygon RPC endpoint                           | Yes      |
+| `USDC_CONTRACT_ADDRESS` | USDC token contract on Polygon              | Yes      |
+| `FETCH_INTERVAL`      | Trade monitoring interval (seconds)             | No (default: 1) |
+| `TOO_OLD_TIMESTAMP`   | Ignore trades older than X hours                | No (default: 24) |
+| `RETRY_LIMIT`         | Maximum retry attempts for failed trades        | No (default: 3) |
+
+---
+
+## Usage
+
+### Start Copy Trading
+
+```bash
+npm run dev
+```
+
+The bot will:
+
+1. Connect to MongoDB
+2. Initialize CLOB client and create/derive API keys
+3. Start trade monitor (fetches trades every X seconds)
+4. Start trade executor (processes pending trades)
+5. Monitor target wallet and execute copy trades automatically
+
+### Expected Output
+
+When running successfully, you should see:
+```
+MongoDB connected
+Target User Wallet address is: 0x...
+My Wallet address is: 0x...
+API Key created/derived
+Trade Monitor is running every 1 seconds
+Executing Copy Trading
+Waiting for new transactions...
+```
+
+### Trade Execution Flow
+
+1. **Monitor**: Fetches user activities from Polymarket API
+2. **Filter**: Identifies new TRADE type activities
+3. **Store**: Saves new trades to MongoDB
+4. **Execute**: Reads pending trades and determines action (buy/sell/merge)
+5. **Match**: Compares positions between target wallet and your wallet
+6. **Trade**: Executes orders via CLOB client
+7. **Update**: Marks trades as processed in database
+
+---
+
+## Execution Logic
+
+### Trade Lifecycle
+
+1. **Fetch Activities**: Monitor target wallet via Polymarket Data API
+2. **Filter Trades**: Identify TRADE type activities only
+3. **Check Duplicates**: Verify trade hasn't been processed before
+4. **Validate Timestamp**: Ignore trades older than configured threshold
+5. **Save to Database**: Store new trades in MongoDB
+6. **Read Pending Trades**: Query database for unprocessed trades
+7. **Fetch Positions**: Get current positions for both wallets
+8. **Get Balances**: Check USDC balances for both wallets
+9. **Determine Condition**: Decide on buy/sell/merge based on positions
+10. **Execute Order**: Place order via CLOB client using appropriate strategy
+11. **Update Status**: Mark trade as processed in database
+
+### Trading Strategies
+
+* **Buy Strategy**: When target wallet buys, calculate position size based on balance ratio
+* **Sell Strategy**: When target wallet sells, match the sell proportionally
+* **Merge Strategy**: When target wallet closes position but you still hold, sell your position
+* **Error Handling**: Retry failed orders up to RETRY_LIMIT, then mark as failed
+
+---
+
+## Project Structure
+
+```
+src/
+ ├── index.ts                 # Main entry point
+ ├── config/
+ │   ├── db.ts                # MongoDB connection
+ │   └── env.ts               # Environment variables
+ ├── services/
+ │   ├── tradeMonitor.ts      # Monitors target wallet trades
+ │   ├── tradeExecutor.ts     # Executes copy trades
+ │   └── createClobClient.ts # Alternative CLOB client (unused)
+ ├── utils/
+ │   ├── createClobClient.ts  # CLOB client initialization
+ │   ├── fetchData.ts         # HTTP data fetching
+ │   ├── getMyBalance.ts      # USDC balance checker
+ │   ├── postOrder.ts         # Order execution logic
+ │   └── spinner.ts           # Terminal spinner
+ ├── models/
+ │   └── userHistory.ts       # MongoDB schemas
+ ├── interfaces/
+ │   └── User.ts              # TypeScript interfaces
+ └── test/
+     └── test.ts              # Test utilities
 ```
 
 ---
 
+##  Logging & Monitoring
+
+* Trade detection and execution
+* Balance and allowance checks
+* Redemption outcomes
+* Structured logs for debugging and audits
+
+Log levels: `info`, `success`, `warning`, `error`
+
 ---
 
-## ⚠️ **Important Notes**  
-- **Database**: This project uses a test database by default. You can change or modify the database connection string in the `.env` file.  
-- **Customization**: All basic content can be updated, and users have control over the displayed information.  
-- **Deployment**: When deploying, ensure to use production database credentials and secure environment variables.  
+##  Risk Disclosure
+
+* Copy trading amplifies both profits and losses
+* Liquidity and slippage risks apply
+* Gas fees incurred on every transaction
+* WebSocket or API outages may impact execution
+
+**Best Practices**:
+
+* Start with low multipliers
+* Enforce strict max order sizes
+* Monitor balances regularly
+* Test using dry-run modes
 
 ---
 
-## 📞 **Contact**  
+## 🛠️ Development
 
-Need help, have questions, or want to collaborate? Reach out!  
+```bash
+# Type check
+npm run build
 
-- **Telegram**: [@soladity](https://t.me/soladity)  
+# Run in development mode
+npm run dev
 
-If you find this project useful, feel free to give it a ⭐ on GitHub.  
+# Lint code
+npm run lint
 
+# Fix linting issues
+npm run lint:fix
 
+# Format code
+npm run format
+```
 
+---
+
+## Strategy Development Story
+
+This copy trading bot was developed as part of a comprehensive Polymarket trading strategy system. Development began in **December 2025**, focusing on automated trade execution and position management.
+
+### Key Features
+
+* Real-time trade monitoring and execution
+* Intelligent position matching and sizing
+* Automatic retry mechanisms for failed orders
+* MongoDB-based trade history tracking
+* Support for multiple market types
+
+---
+
+## Contact & Support
+
+For deployment support, custom integrations, or professional inquiries:
+
+- **Telegram**: [@blacksky](https://t.me/blacksky_jose)
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"USER_ADDRESS is not defined"**
+   - Check your `.env` file exists and has all required variables
+
+2. **"MongoDB connection error"**
+   - Ensure MongoDB is running
+   - Verify `MONGO_URI` is correct
+
+3. **"Cannot find module '@polymarket/clob-client'"**
+   - Run `npm install` to install dependencies
+
+4. **"invalid hexlify value"**
+   - Check `PRIVATE_KEY` is 64 hex characters without `0x` prefix
+
+5. **"API Key creation failed"**
+   - Verify `PRIVATE_KEY` matches `PROXY_WALLET`
+   - Ensure wallet has proper permissions
+
+### Testing
+
+Before running in production:
+1. Monitor first few trades carefully
+2. Verify MongoDB is storing trades correctly
+3. Check order execution logs
+
+---
+
+## License
+
+ISC
+
+---
+
+**Disclaimer**: This software is provided as-is without warranties. Trading prediction markets involves substantial risk. Use responsibly and only with capital you can afford to lose. Past performance does not guarantee future results.
