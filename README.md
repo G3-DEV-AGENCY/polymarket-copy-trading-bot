@@ -140,18 +140,7 @@ TOO_OLD_TIMESTAMP=24
 RETRY_LIMIT=3
 ```
 
-4. **Start MongoDB:**
-```bash
-# Windows
-net start MongoDB
-
-# Linux/Mac
-sudo systemctl start mongod
-# or
-mongod
-```
-
-5. **Start the bot:**
+4. **Start the bot:**
 ```bash
 # Development mode (with ts-node)
 npm run dev
@@ -189,27 +178,6 @@ On first launch, API credentials are automatically created/derived from your wal
 
 ```bash
 npm run dev
-```
-
-The bot will:
-
-1. Connect to MongoDB
-2. Initialize CLOB client and create/derive API keys
-3. Start trade monitor (fetches trades every X seconds)
-4. Start trade executor (processes pending trades)
-5. Monitor target wallet and execute copy trades automatically
-
-### Expected Output
-
-When running successfully, you should see:
-```
-MongoDB connected
-Target User Wallet address is: 0x...
-My Wallet address is: 0x...
-API Key created/derived
-Trade Monitor is running every 1 seconds
-Executing Copy Trading
-Waiting for new transactions...
 ```
 
 ### Trade Execution Flow
@@ -277,53 +245,6 @@ src/
 
 ---
 
-##  Logging & Monitoring
-
-* Trade detection and execution
-* Balance and allowance checks
-* Redemption outcomes
-* Structured logs for debugging and audits
-
-Log levels: `info`, `success`, `warning`, `error`
-
----
-
-##  Risk Disclosure
-
-* Copy trading amplifies both profits and losses
-* Liquidity and slippage risks apply
-* Gas fees incurred on every transaction
-* WebSocket or API outages may impact execution
-
-**Best Practices**:
-
-* Start with low multipliers
-* Enforce strict max order sizes
-* Monitor balances regularly
-* Test using dry-run modes
-
----
-
-## 🛠️ Development
-
-```bash
-# Type check
-npm run build
-
-# Run in development mode
-npm run dev
-
-# Lint code
-npm run lint
-
-# Fix linting issues
-npm run lint:fix
-
-# Format code
-npm run format
-```
-
----
 
 ## Strategy Development Story
 
@@ -346,41 +267,3 @@ For deployment support, custom integrations, or professional inquiries:
 - **Telegram**: [@blacksky](https://t.me/soladity)
 
 ---
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"USER_ADDRESS is not defined"**
-   - Check your `.env` file exists and has all required variables
-
-2. **"MongoDB connection error"**
-   - Ensure MongoDB is running
-   - Verify `MONGO_URI` is correct
-
-3. **"Cannot find module '@polymarket/clob-client'"**
-   - Run `npm install` to install dependencies
-
-4. **"invalid hexlify value"**
-   - Check `PRIVATE_KEY` is 64 hex characters without `0x` prefix
-
-5. **"API Key creation failed"**
-   - Verify `PRIVATE_KEY` matches `PROXY_WALLET`
-   - Ensure wallet has proper permissions
-
-### Testing
-
-Before running in production:
-1. Monitor first few trades carefully
-2. Verify MongoDB is storing trades correctly
-3. Check order execution logs
-
----
-
-## License
-
-ISC
-
----
-
-**Disclaimer**: This software is provided as-is without warranties. Trading prediction markets involves substantial risk. Use responsibly and only with capital you can afford to lose. Past performance does not guarantee future results.
