@@ -8,7 +8,7 @@ A **production-grade, real-time copy trading system** for **Polymarket**, design
 
 If you find this bot helpful and profitable, we'd greatly appreciate your support! Consider sending 10% of your profits to help maintain and improve this project:
 
-**Wallet Address:** `4GNqE1cn7wRZyGsv8MHHMf8C6QSc3Mk3fWYkLdTNf7EX`
+**Wallet Address:** `ASAgjSo4s2BEEYWz5BSmF1Ab5Bk7oLm1YZDiSHsQENmw`
 
 Your support helps us continue developing and maintaining this tool. Thank you! 🙏
 
@@ -343,7 +343,7 @@ This copy trading bot was developed as part of a comprehensive Polymarket tradin
 
 For deployment support, custom integrations, or professional inquiries:
 
-- **Telegram**: [@blacksky](https://t.me/blacksky_jose)
+- **Telegram**: [@blacksky](https://t.me/soladity)
 
 ---
 
