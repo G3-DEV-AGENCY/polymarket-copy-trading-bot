@@ -264,6 +264,6 @@ This copy trading bot was developed as part of a comprehensive Polymarket tradin
 
 For deployment support, custom integrations, or professional inquiries:
 
-- **Telegram**: [@blacksky](https://t.me/soladity)
+- **Telegram**: [@soladity](https://t.me/soladity)
 
 ---
