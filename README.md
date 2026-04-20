@@ -64,6 +64,7 @@ npm run dev    # tsx src/index.ts
 
 ## Env
 
+- `TARGET_WALLET` – Polymarket proxy address or username for copy trade
 - `WALLET_PRIVATE_KEY` – EOA or Magic export
 - `PROXY_WALLET_ADDRESS` – Polymarket profile (required for Magic; optional EOA)
 - `SIGNATURE_TYPE` – 0 = EOA, 1 = Magic/proxy, 2 = Gnosis Safe
